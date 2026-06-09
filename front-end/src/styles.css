@@ -1,0 +1,171 @@
+@import "tailwindcss" source(none);
+@source "../src";
+
+/*
+ * Design system — Bombeiro Oliveira / Partido Missão
+ * Redesign minimalista moderno — 2025
+ * Paleta:
+ *   --black    = preto profundo (#0a0a0a)
+ *   --white    = off-white (#f5f5f0)
+ *   --yellow   = amarelo missão (#e8c840)
+ *   --red      = vermelho bombeiro (#c43a2a)
+ */
+
+@layer base {
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f5f0;
+    --yellow: #e8c840;
+    --yellow-dim: #c9ae2e;
+    --red: #c43a2a;
+    --gray: #888;
+    --light-gray: #e8e8e4;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+  }
+
+  body {
+    font-family: 'Barlow', system-ui, sans-serif;
+    background: var(--black);
+    color: var(--white);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Snap every top-level section to viewport */
+  main > section,
+  main > div {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  /* Hide default cursor — custom cursor via JS */
+  * { cursor: none !important; }
+
+  ::selection {
+    background: var(--yellow);
+    color: var(--black);
+  }
+
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--yellow); }
+}
+
+/* ─── TYPOGRAPHY ─────────────────────────────────────────── */
+@layer utilities {
+  .font-display {
+    font-family: 'Barlow Condensed', system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  /* Section label — "// 01 Sobre" */
+  .section-tag {
+    @apply flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.25em];
+    color: var(--yellow);
+  }
+  .section-tag::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--yellow);
+    flex-shrink: 0;
+  }
+
+  /* Clip-corner button shape */
+  .clip-corner {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
+  }
+
+  /* Text stroke */
+  .text-stroke-yellow {
+    -webkit-text-stroke: 2px var(--yellow);
+    color: transparent;
+  }
+
+  /* Backgrounds */
+  .bg-black-site  { background: var(--black); color: var(--white); }
+  .bg-white-site  { background: var(--white); color: var(--black); }
+
+  /* Grid overlay */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(232, 200, 64, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232, 200, 64, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Noise texture */
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Ticker */
+  @keyframes ticker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-ticker { animation: ticker 35s linear infinite; }
+
+  /* Reveal animations */
+  @keyframes lineUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  .animate-line-up {
+    opacity: 0;
+    transform: translateY(100%);
+    animation: lineUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .animate-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  /* Pulse dot */
+  @keyframes pulseDot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  .animate-pulse-dot { animation: pulseDot 2s ease-in-out infinite; }
+
+  /* Top border hover */
+  .hover-bar {
+    position: relative;
+    overflow: hidden;
+  }
+  .hover-bar::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--yellow);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .hover-bar:hover::before { transform: scaleX(1); }
+
+  /* Horizontal scroll hidden */
+  .scroll-hidden::-webkit-scrollbar { display: none; }
+  .scroll-hidden { -ms-overflow-style: none; scrollbar-width: none; }
+}
