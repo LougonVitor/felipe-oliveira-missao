@@ -12,16 +12,12 @@ const TICKER_ITEMS = [
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const imgY    = useTransform(scrollYProgress, [0, 1], [0, 60]);
-  const textY   = useTransform(scrollYProgress, [0, 1], [0, -40]);
   const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
 
-  const scrollTo = (id: string) => {
+  const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
 
   return (
-    // Ticker is ~44px, so hero is calc(100vh - 44px)
     <div className="flex flex-col" style={{ height: "100vh" }}>
       <section
         id="inicio"
@@ -30,33 +26,51 @@ export default function Hero() {
         style={{ flex: "1 1 0", minHeight: 0 }}
       >
         <div className="absolute inset-0 bg-grid pointer-events-none" />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[var(--yellow)]/[0.06] blur-[100px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-[var(--yellow)]/[0.06] blur-[100px] pointer-events-none" />
 
         <motion.div
           style={{ opacity }}
-          className="relative w-full max-w-[1300px] mx-auto px-10 grid lg:grid-cols-[1fr_380px] gap-10 items-center h-full"
+          className="relative w-full max-w-[1300px] mx-auto px-6 md:px-10 h-full flex flex-col lg:grid lg:grid-cols-[1fr_380px] lg:items-center gap-4 lg:gap-10 overflow-y-auto lg:overflow-visible pt-20 pb-6 lg:py-0"
         >
+          {/* IMAGE — mobile: compact top banner */}
+          <div className="lg:hidden w-full flex-shrink-0" style={{ height: "220px" }}>
+            <div className="relative h-full">
+              <div className="absolute -inset-1 border border-[var(--yellow)]/20 pointer-events-none z-10" />
+              <img
+                src={candidate}
+                alt={CANDIDATE.fullName}
+                className="w-full h-full object-cover object-top grayscale"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--black)] via-transparent to-transparent" />
+              <div className="absolute bottom-2 left-2 bg-[var(--yellow)] text-[var(--black)] font-display font-black text-[9px] uppercase tracking-[0.18em] px-2 py-1 z-20">
+                #BombeiroOliveira · {CANDIDATE.party}
+              </div>
+            </div>
+          </div>
+
           {/* TEXT */}
-          <motion.div style={{ y: textY }} className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3 lg:gap-4 flex-shrink-0">
             {/* Badge */}
             <motion.div
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="inline-flex items-center gap-2.5 border border-[var(--yellow)]/40 px-3 py-1 self-start"
+              className="inline-flex items-center gap-2 border border-[var(--yellow)]/40 px-3 py-1 self-start"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--yellow)] animate-pulse-dot flex-shrink-0" />
-              <span className="text-[var(--yellow)] text-[10px] font-bold uppercase tracking-[0.22em]">
+              <span className="text-[var(--yellow)] text-[9px] md:text-[10px] font-bold uppercase tracking-[0.18em] leading-none">
                 {CANDIDATE.role} · {CANDIDATE.state}
               </span>
             </motion.div>
 
-            {/* Headline — font scales with clamp so it always fits */}
-            <h1 className="font-display font-black uppercase leading-[0.9]"
-                style={{ fontSize: "clamp(44px, 6.5vw, 96px)" }}>
+            {/* Headline */}
+            <h1
+              className="font-display font-black uppercase leading-[0.9]"
+              style={{ fontSize: "clamp(38px, 6.5vw, 96px)" }}
+            >
               {[
                 { text: "QUEM PROTEGE", accent: "PROTEGE" },
-                { text: "VIDAS,",       accent: null },
+                { text: "VIDAS,", accent: null },
                 { text: "DEFENDE O BRASIL.", accent: "BRASIL." },
               ].map(({ text, accent }, i) => (
                 <div key={text} className="overflow-hidden">
@@ -86,7 +100,7 @@ export default function Hero() {
               initial={{ y: 16, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.85 }}
-              className="text-sm text-white/60 max-w-[440px] leading-relaxed font-light"
+              className="text-sm text-white/60 leading-relaxed font-light max-w-[480px]"
             >
               {CANDIDATE.intro}
             </motion.p>
@@ -100,13 +114,13 @@ export default function Hero() {
             >
               <button
                 onClick={() => scrollTo("propostas")}
-                className="font-display font-bold text-[12px] uppercase tracking-[0.2em] bg-[var(--yellow)] text-[var(--black)] px-8 py-3 hover:bg-white transition-colors clip-corner"
+                className="font-display font-bold text-[11px] uppercase tracking-[0.2em] bg-[var(--yellow)] text-[var(--black)] px-6 py-3 hover:bg-white transition-colors clip-corner"
               >
                 Ver Propostas →
               </button>
               <button
                 onClick={() => scrollTo("missao")}
-                className="font-display font-bold text-[12px] uppercase tracking-[0.2em] border border-white/25 text-white px-8 py-3 hover:border-[var(--yellow)] hover:text-[var(--yellow)] transition-colors"
+                className="font-display font-bold text-[11px] uppercase tracking-[0.2em] border border-white/25 text-white px-6 py-3 hover:border-[var(--yellow)] hover:text-[var(--yellow)] transition-colors"
               >
                 Conheça a Missão
               </button>
@@ -117,17 +131,16 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 1.2 }}
-              className="grid grid-cols-3 gap-4 pt-4 border-t border-white/[0.08] max-w-xs"
+              className="grid grid-cols-3 gap-3 pt-3 border-t border-white/[0.08] max-w-xs"
             >
               <Stat value="20+" label="anos no CBMES" accent />
-              <Stat value="2º"  label="Sargento BM" />
-              <Stat value="ES"  label="Serra · ES" />
+              <Stat value="2º" label="Sargento BM" />
+              <Stat value="ES" label="Serra · ES" />
             </motion.div>
-          </motion.div>
+          </div>
 
-          {/* IMAGE — fills remaining height */}
+          {/* IMAGE — desktop right column */}
           <motion.div
-            style={{ y: imgY }}
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
@@ -157,23 +170,19 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, y: [0, 6, 0] }}
           transition={{ opacity: { delay: 1.5 }, y: { duration: 2, repeat: Infinity } }}
-          className="hidden sm:flex absolute bottom-5 right-8 z-10 flex-col items-center gap-1 text-white/40 hover:text-[var(--yellow)] transition-colors"
+          className="hidden lg:flex absolute bottom-5 right-8 z-10 flex-col items-center gap-1 text-white/40 hover:text-[var(--yellow)] transition-colors"
         >
           <span className="text-[9px] font-bold uppercase tracking-[0.3em]">Scroll</span>
           <ArrowDown size={14} />
         </motion.button>
       </section>
 
-      {/* TICKER — fixed height ~44px */}
+      {/* TICKER */}
       <div className="bg-[var(--yellow)] overflow-hidden flex-shrink-0 border-t-2 border-[var(--black)]" style={{ height: "44px" }}>
         <div className="flex animate-ticker whitespace-nowrap h-full items-center">
           {[...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
-            <span
-              key={i}
-              className="font-display font-black text-[12px] uppercase tracking-[0.3em] px-7 text-[var(--black)] flex items-center gap-5"
-            >
-              {item}
-              <span className="text-[var(--black)]/30">★</span>
+            <span key={i} className="font-display font-black text-[12px] uppercase tracking-[0.3em] px-7 text-[var(--black)] flex items-center gap-5">
+              {item}<span className="text-[var(--black)]/30">★</span>
             </span>
           ))}
         </div>
@@ -185,15 +194,10 @@ export default function Hero() {
 function Stat({ value, label, accent }: { value: string; label: string; accent?: boolean }) {
   return (
     <div>
-      <div
-        className="font-display font-black leading-none"
-        style={{ fontSize: "clamp(28px,3.5vw,44px)", color: accent ? "var(--yellow)" : "var(--white)" }}
-      >
+      <div className="font-display font-black leading-none" style={{ fontSize: "clamp(24px,3.5vw,44px)", color: accent ? "var(--yellow)" : "var(--white)" }}>
         {value}
       </div>
-      <div className="text-[9px] font-semibold uppercase tracking-[0.2em] text-white/40 mt-1">
-        {label}
-      </div>
+      <div className="text-[9px] font-semibold uppercase tracking-[0.15em] text-white/40 mt-1">{label}</div>
     </div>
   );
 }

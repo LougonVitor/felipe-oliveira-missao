@@ -31,7 +31,6 @@
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
-    scroll-snap-type: y mandatory;
   }
 
   body {
@@ -43,11 +42,9 @@
     cursor: none;
   }
 
-  /* Snap every top-level section to viewport */
-  main > section,
-  main > div {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
+  @media (max-width: 768px) {
+    body { cursor: auto; }
+    * { cursor: auto !important; }
   }
 
   /* Hide default cursor — custom cursor via JS */

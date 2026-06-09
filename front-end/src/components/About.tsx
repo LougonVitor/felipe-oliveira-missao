@@ -8,12 +8,12 @@ export default function About() {
       {/* ── SOBRE (WHITE) — exactly 100vh ── */}
       <section
         id="sobre"
-        className="relative bg-[var(--white)] text-[var(--black)] overflow-hidden flex items-center"
-        style={{ height: "100vh" }}
+        className="relative bg-[var(--white)] text-[var(--black)] overflow-hidden flex items-center py-20 lg:py-0"
+        style={{ minHeight: "100vh" }}
       >
         <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-[var(--yellow)] to-transparent" />
 
-        <div className="max-w-[1300px] mx-auto w-full px-10 grid lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1300px] mx-auto w-full px-6 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* Left */}
           <Reveal from="left">
             <div className="section-tag mb-3" style={{ color: "var(--yellow)" }}>// 01 Sobre</div>
@@ -70,13 +70,12 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── TRAJETÓRIA HORIZONTAL (WHITE) — exactly 100vh ── */}
+      {/* ── TRAJETÓRIA HORIZONTAL (WHITE) ── */}
       <section
         id="trajetoria"
-        className="bg-[var(--white)] overflow-hidden flex flex-col"
-        style={{ height: "100vh" }}
+        className="bg-[var(--white)] overflow-hidden py-16"
       >
-        <div className="max-w-[1300px] mx-auto w-full px-10 pt-16 pb-6 flex items-end justify-between flex-wrap gap-3 flex-shrink-0">
+        <div className="max-w-[1300px] mx-auto w-full px-6 md:px-10 pb-6 flex items-end justify-between flex-wrap gap-3">
           <div>
             <div className="section-tag mb-3" style={{ color: "var(--yellow)" }}>
               // 01.1 Trajetória
