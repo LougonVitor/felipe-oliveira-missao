@@ -1,43 +1,68 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { CANDIDATE, PILARES, TRAJETORIA } from "@/lib/content";
+import aboutBg from "@/assets/about-bg.jpg";
 
 export default function About() {
   return (
     <>
-      {/* ── SOBRE (WHITE) — exactly 100vh ── */}
+      {/* ── SOBRE ── */}
       <section
         id="sobre"
-        className="relative bg-[var(--white)] text-[var(--black)] overflow-hidden flex items-center py-20 lg:py-0"
+        className="relative text-[var(--white)] overflow-hidden flex items-center py-20 lg:py-0"
         style={{ minHeight: "100vh" }}
       >
-        <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-[var(--yellow)] to-transparent" />
+        {/* Background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${aboutBg})`, filter: "brightness(0.25)" }}
+        />
 
-        <div className="max-w-[1300px] mx-auto w-full px-6 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        {/* Inner shadow vignette */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            boxShadow: "inset 0 0 120px 60px rgba(0,0,0,0.9)",
+          }}
+        />
+
+        {/* Extra edge blur — radial gradient overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.75) 100%)",
+          }}
+        />
+
+        {/* Yellow accent line */}
+        <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-[var(--yellow)] to-transparent z-10" />
+
+        <div className="relative z-10 max-w-[1300px] mx-auto w-full px-6 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* Left */}
           <Reveal from="left">
             <div className="section-tag mb-3" style={{ color: "var(--yellow)" }}>// 01 Sobre</div>
             <h2
               className="font-display font-black uppercase leading-[0.93] mb-5"
-              style={{ fontSize: "clamp(40px,4.5vw,72px)" }}
+              style={{ fontSize: "clamp(40px,4.5vw,72px)", color: "var(--white)" }}
             >
               Do <span style={{ color: "var(--yellow)" }}>quartel</span>
               <br />
               para <span style={{ color: "var(--yellow)" }}>Brasília</span>.
             </h2>
 
-            <p className="text-sm font-light leading-relaxed text-black/65 mb-3">
-              <strong className="font-semibold text-black">{CANDIDATE.fullName}</strong>, o{" "}
+            <p className="text-sm font-light leading-relaxed mb-3" style={{ color: "rgba(255,255,255,0.75)" }}>
+              <strong className="font-semibold" style={{ color: "var(--white)" }}>{CANDIDATE.fullName}</strong>, o{" "}
               {CANDIDATE.nickname}, nasceu em {CANDIDATE.birth} em Vitória-ES. Aos {CANDIDATE.age}{" "}
               anos, carrega quase duas décadas no {CANDIDATE.corp}.
             </p>
-            <p className="text-sm font-light leading-relaxed text-black/65 mb-5">
+            <p className="text-sm font-light leading-relaxed mb-5" style={{ color: "rgba(255,255,255,0.75)" }}>
               Filho de pai capixaba e mãe baiana, casado com Márcia Pereira, residente na Serra.
               Bacharel e pós-graduado em Direito.
             </p>
 
-            <blockquote className="border-l-[3px] border-[var(--yellow)] pl-5 py-3 bg-[var(--yellow)]/[0.05]">
-              <p className="font-display text-base font-semibold italic text-black leading-snug">
+            <blockquote className="border-l-[3px] border-[var(--yellow)] pl-5 py-3" style={{ background: "rgba(232,200,64,0.08)" }}>
+              <p className="font-display text-base font-semibold italic leading-snug" style={{ color: "var(--white)" }}>
                 "Eu não falo de segurança de gabinete. Eu vivo a segurança na linha de frente."
               </p>
             </blockquote>
@@ -53,16 +78,17 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.4 }}
                   transition={{ duration: 0.5, delay: i * 0.07 }}
-                  className="hover-bar border border-black/10 p-5 hover:border-[var(--yellow)] transition-colors"
+                  className="hover-bar border p-5 hover:border-[var(--yellow)] transition-colors"
+                  style={{ borderColor: "rgba(255,255,255,0.12)", background: "rgba(0,0,0,0.92)" }}
                   data-cursor-expand
                 >
                   <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--yellow)] mb-2">
                     // {String(i + 1).padStart(2, "0")}
                   </div>
-                  <div className="font-display font-bold text-lg uppercase text-black mb-1">
+                  <div className="font-display font-bold text-lg uppercase mb-1" style={{ color: "var(--white)" }}>
                     {p.titulo}
                   </div>
-                  <div className="text-xs text-black/55 leading-relaxed">{p.desc}</div>
+                  <div className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>{p.desc}</div>
                 </motion.div>
               ))}
             </div>
