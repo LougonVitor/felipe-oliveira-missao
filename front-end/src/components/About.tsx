@@ -99,9 +99,11 @@ export default function About() {
       {/* ── TRAJETÓRIA HORIZONTAL (WHITE) ── */}
       <section
         id="trajetoria"
-        className="bg-[var(--white)] overflow-hidden py-16"
+        className="bg-[var(--white)] overflow-hidden flex flex-col"
+        style={{ height: "100vh" }}
       >
-        <div className="max-w-[1300px] mx-auto w-full px-6 md:px-10 pb-6 flex items-end justify-between flex-wrap gap-3">
+        {/* Header */}
+        <div className="max-w-[1300px] mx-auto w-full px-6 md:px-10 pt-16 pb-6 flex items-end justify-between flex-wrap gap-3 flex-shrink-0">
           <div>
             <div className="section-tag mb-3" style={{ color: "var(--yellow)" }}>
               // 01.1 Trajetória
@@ -118,7 +120,7 @@ export default function About() {
           </div>
         </div>
 
-          {/* Track — fills remaining height, centered vertically */}
+        {/* Track — fills remaining height */}
         <div className="flex-1 min-h-0 flex flex-col justify-center">
           <HorizontalTrack />
         </div>
@@ -199,7 +201,7 @@ function HorizontalTrack() {
               data-cursor-expand
             >
               {/* Tag — flush to top inside the card */}
-              <div className="bg-[var(--yellow)] text-black font-display font-black text-[13px] uppercase tracking-[0.18em] px-3 py-2 w-full flex-shrink-0">
+              <div className="bg-[var(--yellow)] text-black font-display text-[14px] uppercase tracking-[0.18em] px-3 py-2 w-full flex-shrink-0">
                 {String(i + 1).padStart(2, "0")} · {t.year}
               </div>
 
@@ -211,7 +213,7 @@ function HorizontalTrack() {
                 >
                   {t.title}
                 </h4>
-                <p className="text-xs text-black/60 leading-relaxed">{t.text}</p>
+                <p className="text-xs text-black/90 leading-relaxed">{t.text}</p>
               </div>
 
               {/* Ghost number */}
