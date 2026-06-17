@@ -133,7 +133,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 1.2 }}
               className="grid grid-cols-3 gap-3 pt-3 border-t border-white/[0.08] max-w-xs"
             >
-              <Stat value="20+" label="anos no CBMES" accent />
+              <Stat value="18+" label="anos no CBMES" accent />
               <Stat value="2º" label="Sargento BM" />
               <Stat value="ES" label="Serra · ES" />
             </motion.div>

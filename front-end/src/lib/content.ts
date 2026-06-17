@@ -28,7 +28,7 @@ export const TRAJETORIA = [
     text: "Filho de pai capixaba e mãe baiana, criado na escola pública do Espírito Santo. Desde cedo aprendeu que disciplina e esforço são os únicos caminhos para quem não nasce com privilégios.",
   },
   {
-    year: "2006+",
+    year: "2008+",
     title: "Corpo de Bombeiros Militar",
     text: "Quase 20 anos de serviço operacional no CBMES, ascendendo à patente de 2º Sargento BM. Na linha de frente de incêndios, resgates e emergências, aprendeu que liderar é agir — não discursar.",
   },
