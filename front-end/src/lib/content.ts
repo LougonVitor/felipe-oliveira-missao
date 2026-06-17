@@ -122,7 +122,7 @@ export const VALUES = [
   "Família como base da sociedade",
 ];
 
-export const MISSAO_ES_INSTAGRAM = "https://www.instagram.com/missao.es/";
+export const MISSAO_ES_INSTAGRAM = "https://www.instagram.com/missaoespiritosanto/";
 
 import renanPhoto from "@/assets/renan-santos.jpg";
 import brenoPhoto from "@/assets/breno-barcelos.jpg";
