@@ -183,15 +183,6 @@ export const CANDIDATOS_ES: {
     ],
   },
   {
-    nome: "João Alberto",
-    cargo: "Deputado Federal",
-    sigla: "JA",
-    tab: "federal",
-    socials: [
-      { rede: "Instagram", url: "https://www.instagram.com/" },
-    ],
-  },
-  {
     nome: "Juliana Redivo",
     cargo: "Deputada Federal",
     sigla: "JR",
@@ -237,15 +228,6 @@ export const CANDIDATOS_ES: {
     socials: [
       { rede: "Instagram", url: "https://www.instagram.com/" },
       { rede: "YouTube",   url: "https://www.youtube.com/" },
-    ],
-  },
-  {
-    nome: "Victor Oliveira",
-    cargo: "Deputado Federal",
-    sigla: "VO",
-    tab: "federal",
-    socials: [
-      { rede: "Instagram", url: "https://www.instagram.com/" },
     ],
   },
 
