@@ -83,8 +83,7 @@ export default function About() {
       {/* ── TRAJETÓRIA ── */}
       <section
         id="trajetoria"
-        className="bg-[var(--white)] overflow-hidden flex flex-col"
-        style={{ height: "100vh" }}
+        className="bg-[var(--white)] overflow-hidden flex flex-col md:h-screen"
       >
         {/* Header */}
         <div className="max-w-[1300px] mx-auto w-full px-6 md:px-10 pt-16 pb-6 flex items-end justify-between flex-wrap gap-3 flex-shrink-0">
@@ -101,18 +100,21 @@ export default function About() {
           </div>
         </div>
 
-        {/* MOBILE: vertical scrollable list */}
-        <div className="flex md:hidden flex-col gap-4 px-6 overflow-y-auto pb-8 flex-1">
+        {/* MOBILE: static column — section grows naturally, no internal scroll */}
+        <div className="flex md:hidden flex-col gap-4 px-6 pb-16">
           {TRAJETORIA.map((t, i) => (
             <div
               key={t.title}
-              className="border border-black/12 bg-[var(--white)] flex flex-col relative overflow-hidden flex-shrink-0"
+              className="border border-black/12 bg-[var(--white)] flex flex-col relative overflow-hidden"
             >
               <div className="bg-[var(--yellow)] text-black font-display font-black text-[13px] uppercase tracking-[0.15em] px-4 py-2.5 w-full">
                 {String(i + 1).padStart(2, "0")} · {t.year}
               </div>
               <div className="px-5 pt-4 pb-5">
-                <h4 className="font-display font-bold text-[15px] uppercase leading-tight mb-2" style={{ color: "var(--yellow)" }}>
+                <h4
+                  className="font-display font-bold text-[15px] uppercase leading-tight mb-2"
+                  style={{ color: "var(--yellow)" }}
+                >
                   {t.title}
                 </h4>
                 <p className="text-sm text-black/80 leading-relaxed">{t.text}</p>
