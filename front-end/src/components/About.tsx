@@ -17,24 +17,10 @@ export default function About() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${aboutBg})`, filter: "brightness(0.25)" }}
         />
-
         {/* Inner shadow vignette */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            boxShadow: "inset 0 0 120px 60px rgba(0,0,0,0.9)",
-          }}
-        />
-
-        {/* Extra edge blur — radial gradient overlay */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.75) 100%)",
-          }}
-        />
-
+        <div className="absolute inset-0 pointer-events-none" style={{ boxShadow: "inset 0 0 120px 60px rgba(0,0,0,0.9)" }} />
+        {/* Radial gradient overlay */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.75) 100%)" }} />
         {/* Yellow accent line */}
         <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-[var(--yellow)] to-transparent z-10" />
 
@@ -50,7 +36,6 @@ export default function About() {
               <br />
               para <span style={{ color: "var(--yellow)" }}>Brasília</span>.
             </h2>
-
             <p className="text-sm font-light leading-relaxed mb-3" style={{ color: "rgba(255,255,255,0.75)" }}>
               <strong className="font-semibold" style={{ color: "var(--white)" }}>{CANDIDATE.fullName}</strong>, o{" "}
               {CANDIDATE.nickname}, nasceu em {CANDIDATE.birth} em Vitória-ES. Aos {CANDIDATE.age}{" "}
@@ -60,7 +45,6 @@ export default function About() {
               Filho de pai capixaba e mãe baiana, casado com Márcia Pereira, residente na Serra.
               Bacharel e pós-graduado em Direito.
             </p>
-
             <blockquote className="border-l-[3px] border-[var(--yellow)] pl-5 py-3" style={{ background: "rgba(232,200,64,0.08)" }}>
               <p className="font-display text-base font-semibold italic leading-snug" style={{ color: "var(--white)" }}>
                 "Eu não falo de segurança de gabinete. Eu vivo a segurança na linha de frente."
@@ -96,7 +80,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── TRAJETÓRIA HORIZONTAL (WHITE) ── */}
+      {/* ── TRAJETÓRIA ── */}
       <section
         id="trajetoria"
         className="bg-[var(--white)] overflow-hidden flex flex-col"
@@ -108,20 +92,37 @@ export default function About() {
             <div className="section-tag mb-3" style={{ color: "var(--yellow)" }}>
               // 01.1 Trajetória
             </div>
-            <h3
-              className="font-display font-black uppercase text-black"
-              style={{ fontSize: "clamp(32px,3.5vw,52px)" }}
-            >
+            <h3 className="font-display font-black uppercase text-black" style={{ fontSize: "clamp(32px,3.5vw,52px)" }}>
               Uma vida de <span style={{ color: "var(--yellow)" }}>missão</span>.
             </h3>
           </div>
-          <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-black/35 flex items-center gap-2">
+          <div className="hidden md:flex text-[10px] font-semibold uppercase tracking-[0.2em] text-black/35 items-center gap-2">
             Arraste para o lado →
           </div>
         </div>
 
-        {/* Track — fills remaining height */}
-        <div className="flex-1 min-h-0 flex flex-col justify-center">
+        {/* MOBILE: vertical scrollable list */}
+        <div className="flex md:hidden flex-col gap-4 px-6 overflow-y-auto pb-8 flex-1">
+          {TRAJETORIA.map((t, i) => (
+            <div
+              key={t.title}
+              className="border border-black/12 bg-[var(--white)] flex flex-col relative overflow-hidden flex-shrink-0"
+            >
+              <div className="bg-[var(--yellow)] text-black font-display font-black text-[13px] uppercase tracking-[0.15em] px-4 py-2.5 w-full">
+                {String(i + 1).padStart(2, "0")} · {t.year}
+              </div>
+              <div className="px-5 pt-4 pb-5">
+                <h4 className="font-display font-bold text-[15px] uppercase leading-tight mb-2" style={{ color: "var(--yellow)" }}>
+                  {t.title}
+                </h4>
+                <p className="text-sm text-black/80 leading-relaxed">{t.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* DESKTOP: horizontal drag track */}
+        <div className="hidden md:flex flex-col flex-1 min-h-0 justify-center">
           <HorizontalTrack />
         </div>
       </section>
@@ -155,7 +156,7 @@ function HorizontalTrack() {
   };
 
   const onPointerDown = (e: React.PointerEvent) => {
-    isDragging.current  = true;
+    isDragging.current   = true;
     pointerStart.current = e.clientX;
     scrollStart.current  = scrollXRef.current;
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
@@ -176,13 +177,11 @@ function HorizontalTrack() {
     }
   };
 
-  // Card dimensions — taller and wider for better readability
   const CARD_W = 340;
   const CARD_H = 300;
 
   return (
     <div onWheel={onWheel}>
-      {/* Overflow mask */}
       <div ref={outerRef} className="overflow-hidden">
         <div
           ref={trackRef}
@@ -200,35 +199,22 @@ function HorizontalTrack() {
               style={{ width: `${CARD_W}px`, height: `${CARD_H}px` }}
               data-cursor-expand
             >
-              {/* Tag — flush to top inside the card */}
-              <div className="bg-[var(--yellow)] text-black font-display text-[14px] uppercase tracking-[0.18em] px-3 py-2 w-full flex-shrink-0">
+              <div className="bg-[var(--yellow)] text-black font-display font-black text-[14px] uppercase tracking-[0.18em] px-3 py-2 w-full flex-shrink-0">
                 {String(i + 1).padStart(2, "0")} · {t.year}
               </div>
-
-              {/* Body */}
               <div className="flex flex-col flex-1 px-5 pt-4 pb-3 overflow-hidden">
-                <h4
-                  className="font-display font-bold uppercase leading-tight mb-2 flex-shrink-0"
-                  style={{ fontSize: "16px", color: "var(--yellow)" }}
-                >
+                <h4 className="font-display font-bold uppercase leading-tight mb-2 flex-shrink-0" style={{ fontSize: "16px", color: "var(--yellow)" }}>
                   {t.title}
                 </h4>
                 <p className="text-xs text-black/90 leading-relaxed">{t.text}</p>
               </div>
-
-              {/* Ghost number */}
-              <div
-                className="absolute bottom-1 right-2 font-display font-black leading-none select-none pointer-events-none"
-                style={{ fontSize: "52px", color: "rgba(10,10,10,0.045)" }}
-              >
+              <div className="absolute bottom-1 right-2 font-display font-black leading-none select-none pointer-events-none" style={{ fontSize: "52px", color: "rgba(10,10,10,0.045)" }}>
                 {String(i + 1).padStart(2, "0")}
               </div>
             </div>
           ))}
         </div>
       </div>
-
-      {/* Progress bar */}
       <div className="mx-10 mt-5 h-px bg-black/10 relative overflow-hidden">
         <div ref={fillRef} className="absolute inset-y-0 left-0 bg-[var(--yellow)] w-0 transition-none" />
       </div>
