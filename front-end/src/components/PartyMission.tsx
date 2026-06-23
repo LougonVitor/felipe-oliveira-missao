@@ -35,7 +35,7 @@ function LeaderCard({ lider }: { lider: (typeof LIDERES_NACIONAIS)[0] }) {
       transition={{ duration: 0.5 }}
       className="flex items-center gap-4 border border-white/[0.08] p-4 bg-white/[0.02] hover:border-[var(--yellow)]/40 transition-colors"
     >
-      <Avatar sigla={lider.sigla} photo={lider.photo} size={52} />
+      <Avatar sigla={lider.sigla} photo={lider.photo} size={62} />
       <div className="flex-1 min-w-0">
         <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/40 mb-0.5 truncate">{lider.cargo}</div>
         <div className="font-display font-black text-base uppercase text-white leading-none mb-2 truncate">{lider.nome}</div>
@@ -64,7 +64,7 @@ function CandidateCard({ c, i }: { c: (typeof CANDIDATOS_ES)[0]; i: number }) {
       style={{ borderColor: c.destaque ? "rgba(232,200,64,0.4)" : "rgba(255,255,255,0.07)", background: c.destaque ? "rgba(232,200,64,0.04)" : "rgba(255,255,255,0.015)" }}
     >
       {c.destaque && <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "var(--yellow)" }} />}
-      <Avatar sigla={c.sigla} photo={c.photo} size={42} highlight={!!c.destaque} />
+      <Avatar sigla={c.sigla} photo={c.photo} size={52} highlight={!!c.destaque} />
       <div className="flex-1 min-w-0">
         <div className="font-display font-black text-sm uppercase leading-tight mb-0.5 truncate" style={{ color: c.destaque ? "var(--yellow)" : "var(--white)" }}>{c.nome}</div>
         <div className="text-[9px] font-bold uppercase tracking-[0.15em] text-white/35 mb-1.5">{c.cargo}</div>

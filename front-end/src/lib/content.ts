@@ -127,6 +127,17 @@ export const MISSAO_ES_INSTAGRAM = "https://www.instagram.com/missaoespiritosant
 import renanPhoto from "@/assets/renan-santos.jpg";
 import brenoPhoto from "@/assets/breno-barcelos.jpg";
 import oliveiraPhoto from "@/assets/oliveira-avatar.jpg";
+import diegoPhoto from "@/assets/diego-dantas.jpg";
+import julianaPhoto from "@/assets/juliana-redivo.jpg";
+import mauroPhoto from "@/assets/mauro-junior.jpg";
+import mauricioPhoto from "@/assets/mauricio-perini.jpg";
+import pedroPhoto from "@/assets/pedro-francez.jpg";
+import rogerioPhoto from "@/assets/rogerio-perestelo.jpg";
+import jeffersonPhoto from "@/assets/jefferson-zanetti.jpg";
+import lucasPhoto from "@/assets/lucas-gabriel.jpg";
+import raphaelPhoto from "@/assets/raphael-fernandes.jpg";
+import samiraPhoto from "@/assets/samira-oliveira.jpg";
+import tallesPhoto from "@/assets/talles-batista.jpg";
 
 export const LIDERES_NACIONAIS = [
   {
@@ -177,6 +188,7 @@ export const CANDIDATOS_ES: {
     nome: "Diêgo Dantas",
     cargo: "Deputado Federal",
     sigla: "DD",
+    photo: diegoPhoto,
     tab: "federal",
     socials: [
       { rede: "Instagram", url: "https://www.instagram.com/diegodantasmd/" },
@@ -186,6 +198,7 @@ export const CANDIDATOS_ES: {
     nome: "Juliana Redivo",
     cargo: "Deputada Federal",
     sigla: "JR",
+    photo: julianaPhoto,
     tab: "federal",
     socials: [
       { rede: "Instagram", url: "https://www.instagram.com/julianabredivo/" },
@@ -196,6 +209,7 @@ export const CANDIDATOS_ES: {
     nome: "Mauro Junior",
     cargo: "Deputado Federal",
     sigla: "MJ",
+    photo: mauroPhoto,
     tab: "federal",
     socials: [
       { rede: "Instagram", url: "https://www.instagram.com/maurojr.es/" },
@@ -205,6 +219,7 @@ export const CANDIDATOS_ES: {
     nome: "Maurício Perini",
     cargo: "Deputado Federal",
     sigla: "MP",
+    photo: mauricioPhoto,
     tab: "federal",
     socials: [
       { rede: "Instagram", url: "https://www.instagram.com/mauricioperene/" },
@@ -214,6 +229,7 @@ export const CANDIDATOS_ES: {
     nome: "Pedro Francez",
     cargo: "Deputado Federal",
     sigla: "PF",
+    photo: pedroPhoto,
     tab: "federal",
     socials: [
       { rede: "Instagram", url: "https://www.instagram.com/pedrofrancez/" },
@@ -224,6 +240,7 @@ export const CANDIDATOS_ES: {
     nome: "Rogério Perestelo",
     cargo: "Deputado Federal",
     sigla: "RP",
+    photo: rogerioPhoto,
     tab: "federal",
     socials: [
       { rede: "Instagram", url: "https://www.instagram.com/rogerioperestelo/" },
@@ -236,16 +253,18 @@ export const CANDIDATOS_ES: {
     nome: "Jefferson Zanetti",
     cargo: "Deputado Estadual",
     sigla: "JZ",
+    photo: jeffersonPhoto,
     tab: "estadual",
     socials: [
       { rede: "Instagram", url: "https://www.instagram.com/ateocegove.missao14/" },
-      //{ rede: "Facebook",  url: "https://www.facebook.com/" },
+      { rede: "Facebook",  url: "https://www.facebook.com/" },
     ],
   },
   {
     nome: "Lucas Gabriel",
     cargo: "Deputado Estadual",
     sigla: "LG",
+    photo: lucasPhoto,
     tab: "estadual",
     socials: [
       { rede: "Instagram", url: "https://www.instagram.com/lucasoestudar/" },
@@ -255,6 +274,7 @@ export const CANDIDATOS_ES: {
     nome: "Raphael Fernandes",
     cargo: "Deputado Estadual",
     sigla: "RF",
+    photo: raphaelPhoto,
     tab: "estadual",
     socials: [
       { rede: "Instagram", url: "https://www.instagram.com/raphaelfernandes2.0/" },
@@ -264,16 +284,18 @@ export const CANDIDATOS_ES: {
     nome: "Samira Oliveira",
     cargo: "Deputada Estadual",
     sigla: "SO",
+    photo: samiraPhoto,
     tab: "estadual",
     socials: [
       { rede: "Instagram", url: "https://www.instagram.com/macchi_atos/" },
-      //{ rede: "X",         url: "https://x.com/" },
+      { rede: "X",         url: "https://x.com/" },
     ],
   },
   {
     nome: "Talles Batista",
     cargo: "Deputado Estadual",
     sigla: "TB",
+    photo: tallesPhoto,
     tab: "estadual",
     socials: [
       { rede: "Instagram", url: "https://www.instagram.com/rbtalles/" },
