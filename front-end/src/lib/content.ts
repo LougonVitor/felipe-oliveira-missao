@@ -135,9 +135,9 @@ export const LIDERES_NACIONAIS = [
     sigla: "RS",
     photo: renanPhoto,
     socials: [
-      { rede: "Instagram", url: "https://www.instagram.com/renan_missao/" },
-      { rede: "X", url: "https://x.com/renan_missao" },
-      { rede: "Telegram", url: "https://t.me/renan_missao" },
+      { rede: "Instagram", url: "https://www.instagram.com/renansantosmbl/" },
+      //{ rede: "X", url: "https://x.com/renan_missao" },
+      //{ rede: "Telegram", url: "https://t.me/renan_missao" },
     ],
   },
   {
@@ -146,7 +146,7 @@ export const LIDERES_NACIONAIS = [
     sigla: "BB",
     photo: brenoPhoto,
     socials: [
-      { rede: "Instagram", url: "https://www.instagram.com/brenoafbarcelos/" },
+      { rede: "Instagram", url: "https://www.instagram.com/brenobarcelos14/" },
     ],
   },
 ];
@@ -170,7 +170,7 @@ export const CANDIDATOS_ES: {
     tab: "federal",
     socials: [
       { rede: "Instagram", url: "https://www.instagram.com/sgt_bm_oliveira/" },
-      { rede: "Facebook",  url: "https://www.facebook.com/sgt_bm_oliveira" },
+      //{ rede: "Facebook",  url: "https://www.facebook.com/sgt_bm_oliveira" },
     ],
   },
   {
@@ -179,7 +179,7 @@ export const CANDIDATOS_ES: {
     sigla: "DD",
     tab: "federal",
     socials: [
-      { rede: "Instagram", url: "https://www.instagram.com/" },
+      { rede: "Instagram", url: "https://www.instagram.com/diegodantasmd/" },
     ],
   },
   {
@@ -188,8 +188,8 @@ export const CANDIDATOS_ES: {
     sigla: "JR",
     tab: "federal",
     socials: [
-      { rede: "Instagram", url: "https://www.instagram.com/" },
-      { rede: "X",         url: "https://x.com/" },
+      { rede: "Instagram", url: "https://www.instagram.com/julianabredivo/" },
+      //{ rede: "X",         url: "https://x.com/" },
     ],
   },
   {
@@ -198,7 +198,7 @@ export const CANDIDATOS_ES: {
     sigla: "MJ",
     tab: "federal",
     socials: [
-      { rede: "Instagram", url: "https://www.instagram.com/" },
+      { rede: "Instagram", url: "https://www.instagram.com/maurojr.es/" },
     ],
   },
   {
@@ -207,7 +207,7 @@ export const CANDIDATOS_ES: {
     sigla: "MP",
     tab: "federal",
     socials: [
-      { rede: "Instagram", url: "https://www.instagram.com/" },
+      { rede: "Instagram", url: "https://www.instagram.com/mauricioperene/" },
     ],
   },
   {
@@ -216,8 +216,8 @@ export const CANDIDATOS_ES: {
     sigla: "PF",
     tab: "federal",
     socials: [
-      { rede: "Instagram", url: "https://www.instagram.com/" },
-      { rede: "X",         url: "https://x.com/" },
+      { rede: "Instagram", url: "https://www.instagram.com/pedrofrancez/" },
+      //{ rede: "X",         url: "https://x.com/" },
     ],
   },
   {
@@ -226,8 +226,8 @@ export const CANDIDATOS_ES: {
     sigla: "RP",
     tab: "federal",
     socials: [
-      { rede: "Instagram", url: "https://www.instagram.com/" },
-      { rede: "YouTube",   url: "https://www.youtube.com/" },
+      { rede: "Instagram", url: "https://www.instagram.com/rogerioperestelo/" },
+      //{ rede: "YouTube",   url: "https://www.youtube.com/" },
     ],
   },
 
@@ -238,8 +238,8 @@ export const CANDIDATOS_ES: {
     sigla: "JZ",
     tab: "estadual",
     socials: [
-      { rede: "Instagram", url: "https://www.instagram.com/" },
-      { rede: "Facebook",  url: "https://www.facebook.com/" },
+      { rede: "Instagram", url: "https://www.instagram.com/ateocegove.missao14/" },
+      //{ rede: "Facebook",  url: "https://www.facebook.com/" },
     ],
   },
   {
@@ -248,7 +248,7 @@ export const CANDIDATOS_ES: {
     sigla: "LG",
     tab: "estadual",
     socials: [
-      { rede: "Instagram", url: "https://www.instagram.com/" },
+      { rede: "Instagram", url: "https://www.instagram.com/lucasoestudar/" },
     ],
   },
   {
@@ -257,7 +257,7 @@ export const CANDIDATOS_ES: {
     sigla: "RF",
     tab: "estadual",
     socials: [
-      { rede: "Instagram", url: "https://www.instagram.com/" },
+      { rede: "Instagram", url: "https://www.instagram.com/raphaelfernandes2.0/" },
     ],
   },
   {
@@ -266,8 +266,8 @@ export const CANDIDATOS_ES: {
     sigla: "SO",
     tab: "estadual",
     socials: [
-      { rede: "Instagram", url: "https://www.instagram.com/" },
-      { rede: "X",         url: "https://x.com/" },
+      { rede: "Instagram", url: "https://www.instagram.com/macchi_atos/" },
+      //{ rede: "X",         url: "https://x.com/" },
     ],
   },
   {
@@ -276,7 +276,7 @@ export const CANDIDATOS_ES: {
     sigla: "TB",
     tab: "estadual",
     socials: [
-      { rede: "Instagram", url: "https://www.instagram.com/" },
+      { rede: "Instagram", url: "https://www.instagram.com/rbtalles/" },
     ],
   },
 ];
